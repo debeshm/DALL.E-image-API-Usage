@@ -18,6 +18,15 @@ def generate_image(prompt):
     image_url = response.data[0].url
     return image_url
 
+def generate_variations(file_name):
+    response = openai.images.create_variation(
+        image=open(file_name, "rb"),
+        n=1,
+        size="512x512"
+    )
+    image_url = response.data[0].url
+    return image_url
+
 def display_image(image_url):
     response = requests.get(image_url)
     img = Image.open(BytesIO(response.content))
@@ -29,6 +38,10 @@ if __name__ == "__main__":
 
     # Generate image
     image_url = generate_image(prompt)
-    
+    # Display the image
+    display_image(image_url)
+
+    # Generate variation
+    image_url = generate_variations("cute_dog.png")
     # Display the image
     display_image(image_url)
