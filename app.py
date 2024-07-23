@@ -5,7 +5,7 @@ from io import BytesIO
 
 # Set your OpenAI API key
 openai = OpenAI(
-    api_key='sk-proj-BSBP9qsy2X5oAJI8jyF4T3BlbkFJpxYl353xSaDFNmGD08B6',
+    api_key='your-api-key',
 )
 
 def generate_image(prompt):
