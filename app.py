@@ -57,7 +57,7 @@ if __name__ == "__main__":
     display_image(image_url)
 
     # Define your prompt for image editing
-    prompt = "A swimming pool with a dog swimming"
+    prompt = "A swimming pool with toy duck floating"
     # Generate edited image
     image_url = edit_image(prompt, "swimming_pool.png", "swimming_pool_mask.png")
     # Display the image
