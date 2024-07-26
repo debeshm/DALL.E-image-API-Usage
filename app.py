@@ -10,9 +10,11 @@ openai = OpenAI(
 
 def generate_image(prompt):
     response = openai.images.generate(
+        model="dall-e-3",
         prompt=prompt,
+        size="1024x1024",
+        quality="standard",
         n=1,
-        size="1024x1024"
     )
 
     image_url = response.data[0].url
@@ -20,6 +22,7 @@ def generate_image(prompt):
 
 def generate_variations(file_name):
     response = openai.images.create_variation(
+        model="dall-e-2",
         image=open(file_name, "rb"),
         n=1,
         size="512x512"
@@ -29,6 +32,7 @@ def generate_variations(file_name):
 
 def edit_image(prompt, image_path, mask_path):
     response = openai.images.edit(
+        model="dall-e-2",
         image=open(image_path, "rb"),
         mask=open(mask_path, "rb"),
         prompt=prompt,
